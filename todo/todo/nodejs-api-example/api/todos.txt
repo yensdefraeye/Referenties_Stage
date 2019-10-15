@@ -1,0 +1,6 @@
+sqlite3 todos.db
+.databases
+.quit
+.dump
+
+https://github.com/mapbox/node-sqlite3/wiki/API

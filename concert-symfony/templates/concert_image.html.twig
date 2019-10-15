@@ -1,0 +1,26 @@
+{% extends 'common/base.html.twig' %}
+
+{% block body %}
+    <!-- Main -->
+    <div id="main">
+        <!-- Event table -->
+        <section id="concert">
+            {% if concert or image is not empty %}
+                <header class="major">
+                    <h2>{{ concert.title }}</h2>
+                </header>
+                <div class="table-wrapper">
+                    <div class="box alt">
+
+                        <div class="row 50% uniform">
+                            <div class="12u$"><span class="image fit"><img src="{{ asset('images/') ~ image.path }}" alt="" /></span></div>
+                        </div>
+                    </div>
+                    <p><a href="{{ path('concert', {id: concert.id}) }}">Terug naar concert</a></p>
+                </div>
+            {% elseif concert or image is empty %}
+                <p>Concert of image werd niet gevonden.</p>
+            {% endif %}
+        </section>
+    </div>
+{% endblock %}

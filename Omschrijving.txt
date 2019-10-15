@@ -1,0 +1,25 @@
+#Omschrijving Referenties.
+In deze repository zitten enkele opdrachten die gerealiseerd zijn tijdens de opleiding.
+Sommige projecten zijn nog in de maak en worden dus verder uitgebreid.
+Ik heb geprobeerd een aantal projecten uit te kiezen die zoveel mogelijk laten zien welke technieken ik onder de knie heb. Hieronder volgt een woordje uitleg over deze projectjes.  
+
+##Beerpage
+Dit project was de laatste opdracht die gemaakt werd in Server Side Development.
+Het omvat een web app die bieren en brouwerijen toont. Gebruikers kunnen inloggen en bieren toevoegen aan hun favorieten.
+Enkele kernwoorden: Laravel, Authenticatie, MySQL.
+
+##Stocks
+Deze opdracht was de laatste realisatie voor Client Side Development. In deze web app worden stocks uit een API gehaald en getoond. Het omvat alle technieken gezien tijdens de lessen over Vue.js.
+Enkele kernwoorden: Vue.js, API, VueRouter, VueX 
+
+##Concert-Laravel
+Dit was de tweede labo opdracht voor Server Side Development. Concerten worden uit een databank gehaald en getoond. Een gebruiker kan verder doorklikken voor de details.
+
+##Concert-Symfony
+Dit is een projectje(nog in de maak) waarin ik aantoon Symfony zelf aan te leren.
+In deze web app worden opnieuw de concerten getoond zoals in vorige opdracht, maar met het gebruik van Symfony in plaats van Laravel.
+
+Het gaat hier over een "Proof of Concept", waarin ik toon dat ik Symfony onder de knie heb. Dat wil dus zeggen dat sommige functies, zoals Security en Authenticatie, nog niet op punt staan of nog verder uitgewerkt worden de komende weken.
+
+##Todo
+Net zoals het Concert-Symfony projectje, is dit een web app die nog in de maak is. Hierin leer ik mezelf de concepten van React aan.

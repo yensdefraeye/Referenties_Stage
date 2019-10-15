@@ -1,0 +1,45 @@
+{% extends 'common/base.html.twig' %}
+
+{% block body %}
+    <div id="main">
+        <!-- Event table -->
+        <section id="concert">
+            {% if concert is not empty %}
+                <header class="major">
+                    <h2>{{ concert.title }}</h2>
+                </header>
+                <div class="table-wrapper">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <th>Datum</th>
+                            <td>{{ concert.startDate|date('Y-m-d') }}</td>
+                        </tr>
+                        <tr>
+                            <th>Locatie</th>
+                            <td>{{ concert.location }}</td>
+                        </tr>
+                        <tr>
+                            <th>Prijs</th>
+                            <td>
+                                {{ concert.price }} &euro;
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="box alt">
+                        <div class="row 50% uniform">
+                            {% for image in images %}
+                                <div class="4u"><a href="{{ path('image', {conc_id: concert.id, img_id: image.id}) }}" class="image fit thumb"><img src="{{ asset('images/') ~ image.path }}" alt="" /></a></div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% elseif concert is empty %}
+                    <p>Dit concert werd niet gevonden.</p>
+                {% endif %}
+                    <p><a href={{ path('index') }}>Terug naar overzicht</a></p>
+                </div>
+        </section>
+    </div>
+{% endblock %}

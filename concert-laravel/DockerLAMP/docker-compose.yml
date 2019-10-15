@@ -1,0 +1,14 @@
+version: '3.3'
+
+services:
+  lamp:
+    image: mattrayner/lamp:latest-1604-php7
+    ports:
+      - "8080:80"
+      - "3307:3306"
+    volumes:
+     - ./www:/app
+     - ./mysql:/var/lib/mysql
+volumes:
+    www:
+    mysql:

@@ -1,0 +1,59 @@
+{% extends 'common/base.html.twig' %}
+
+{% block body %}
+    <!-- Main -->
+    <div id="main">
+        <!-- Event table -->
+        <section id="event_table">
+            <header class="major">
+                <h2>Overzicht concerten</h2>
+            </header>
+            <form method="get" action={{ path('search') }}>
+                <div class="row uniform 50%">
+                    <div class="6u 12u$(xsmall)"></div>
+                    <div class="3u 12u$(xsmall)">
+                        <input type="text" name="search" id="search" value="" placeholder="Zoekterm" />
+                    </div>
+                    <div class="3u 12u$(xsmall)">
+                        <input type="submit" value="Zoeken" class="special fit small" style="height: 3.4em"/>
+                    </div>
+                </div>
+            </form>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Datum</th>
+                        <th>Naam en locatie</th>
+                        <th>Prijs</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if concerts|length > 0 %}
+                        {% for concert in concerts %}
+                            <tr>
+                                <td>{{ concert.startDate|date('Y-m-d') }}</td>
+                                <td><a href="{{ path('concert', {id: concert.id}) }}">{{ concert.title }} ({{ concert.location }})</a> {% if concert.fav %}<a class="icon fa-star" />{% endif %}<br/>
+                                    <form method="post" action="{{ path('switch') }}" style="margin: 0">
+                                        <input type="hidden" name="event_id" value="{{ concert.id }}" />
+                                        <input type="hidden" name="fav" value="{{ concert.fav}}" />
+                                        <input type="hidden" name="moduleAction" value="switch" />
+                                        {% if concert.fav == false %}
+                                        <input type="submit" value="voeg toe aan favorieten" class="small" style="line-height:0em; height: 2em"/>
+                                        {% elseif concert.fav == true %}
+                                        <input type="submit" value="verwijder uit favorieten" class="small" style="line-height:0em; height: 2em"/>
+                                        {% endif %}
+                                    </form>
+                                </td>
+                                <td>{{ concert.price }} &euro;</td>
+                            </tr>
+                        {% endfor %}
+                    {% elseif concerts|length < 1 %}
+                        <p>Er werden geen concerten gevonden</p>
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+{% endblock %}

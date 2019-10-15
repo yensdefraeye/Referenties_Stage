@@ -1,0 +1,36 @@
+//starten
+docker-compose up
+
+//inloggen op terminal
+docker exec ‐it <container‐id> /bin/bash
+
+//project installen -> eerst in LAMP-container gaan waar www en mysql staat
+composer create-project --prefer-dist laravel/laravel concertpagina 5.8.*
+
+//PASSWORD DB
+mysql -uadmin -pwoXOmTrrYa4q -h<host> -P<port>
+
+
+//MIGRATIONS in database/migrations
+//migration aanmaken voor Images
+//eerst inloggen op terminal
+//dan
+php artisan make:migration images
+
+//na aanmaken migration, migration runnen
+php artisan migrate
+
+
+//SEEDERS in database/seeds
+//seeder maken voor images, eerst inloggen op terminal
+php artisan make:seeder ImagesTableSeeder
+ -> dan seeder aanvullen in file
+
+//dump seader
+composer dump-autoload
+
+//seeden
+php artisan db:seed
+
+//db rebuilden
+php artisan migrate:refresh --seed --class=ImagesTableSeeder
